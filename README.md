@@ -1,6 +1,3 @@
-Here's your content formatted as a proper `README.md` file using standard Markdown structure with `#` and `##` headings:
-
-````markdown
 # Moeketsi Junior Sillo - Personal Portfolio 🌐
 
 This is my professional portfolio, showcasing my skills as a full-stack software developer. Built with **Next.js** and deployed on **Vercel**, it features a modern, responsive design with a contact form and resume download, demonstrating my expertise in creating user-centric web applications.
@@ -25,7 +22,8 @@ This portfolio highlights my technical abilities and professional journey. It’
 
 **Home page** showcasing my introduction, resume download, and responsive design.
 
-> Screenshot file: `screenshots/portfolio-home.png`
+> Screenshot file: ![Screenshot 2025-01-20 at 00 54 48](https://github.com/user-attachments/assets/a083b76e-2906-4a07-8cc6-1fcfffa38567)
+
 
 ---
 
