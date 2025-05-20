@@ -21,21 +21,21 @@ import WorkSlideBtns from "@/components/ui/WorkSlideBtns";
 
 const projects = [
   {
-    num: "01",
-    category: "Frontend",
-    title: "Hotel Booking Website",
-    description:
-      "A responsive hotel booking website built using modern web technologies. The project includes a visually appealing design, interactive features, and user-friendly navigation.",
-    stack: [
-      { name: "HTML5" },
-      { name: "CSS3" },
-      { name: "JavaScript" },
-      { name: "React" },
-    ],
-    image: "/thumb1.png",
-    live: "",
-    github: "https://github.com/JuniorSillo/HOTEL_WEBSITE",
-  },
+  "num": "01",
+  "category": "Full-Stack",
+  "title": "AI-Powered Resume Builder",
+  "description": "A dynamic web application for creating professional resumes with AI-driven suggestions and real-time previews. Features include responsive design, form validation, PDF export, and a modern user interface.",
+  "stack": [
+    { "name": "Next.js" },
+    { "name": "React" },
+    { "name": "TypeScript" },
+    { "name": "Tailwind CSS" },
+    { "name": "jsPDF" }
+  ],
+  "image": "/thumb5.png",
+  "live": "https://ai-resume-builder-rosy-rho.vercel.app/",
+  "github": "https://github.com/JuniorSillo/AI-Resume-Builder"
+},
   {
     num: "02",
     category: "FullStack",
@@ -72,6 +72,22 @@ const projects = [
     live: "https://spotify-clone-plum-pi.vercel.app/",
     github: "https://github.com/JuniorSillo/Spotify-clone",
   },
+  {
+    num: "04",
+    category: "Frontend",
+    title: "Hotel Booking Website",
+    description:
+      "A responsive hotel booking website built using modern web technologies. The project includes a visually appealing design, interactive features, and user-friendly navigation.",
+    stack: [
+      { name: "HTML5" },
+      { name: "CSS3" },
+      { name: "JavaScript" },
+      { name: "React" },
+    ],
+    image: "/thumb1.png",
+    live: "",
+    github: "https://github.com/JuniorSillo/HOTEL_WEBSITE",
+  }
 ];
 
 const Work = () => {
