@@ -63,7 +63,6 @@ const Contact = () => {
             >
               <h3 className="text-center text-4xl font-extrabold text-white">
                 Let's Work Together
-              </ “‘s Work Together
               </h3>
               <p className="text-center text-gray-200">
                 Fill out the form below to get in touch.
@@ -116,7 +115,7 @@ const Contact = () => {
                 />
                 <label
                   className="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-purple-500 peer-focus:text-sm"
-                    htmlFor="email"
+                  htmlFor="email"
                 >
                   Email
                 </label>
@@ -133,7 +132,7 @@ const Contact = () => {
                 />
                 <label
                   className="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-purple-500 peer-focus:text-sm"
-                    htmlFor="phone"
+                  htmlFor="phone"
                 >
                   Phone
                 </label>
