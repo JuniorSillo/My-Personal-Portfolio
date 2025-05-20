@@ -14,7 +14,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import emailjs from "@emailjs/browser";
 
 const info = [
   {
@@ -35,61 +34,13 @@ const info = [
 ];
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: "",
-  });
   const [message, setMessage] = useState("");
   const [selectedValue, setSelectedValue] = useState("");
 
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
-  };
-
   const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // EmailJS configuration
-    const serviceID = "your_service_id"; // Replace with your EmailJS Service ID
-    const templateID = "your_template_id"; // Replace with your EmailJS Template ID
-    const userID = "your_user_id"; // Replace with your EmailJS User ID
-
-    // Prepare template parameters
-    const templateParams = {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      phone: formData.phone,
-      service: selectedValue,
-      message: formData.message,
-    };
-
-    // Send email via EmailJS
-    emailjs.send(serviceID, templateID, templateParams, userID).then(
-      () => {
-        setMessage("Message sent successfully!");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: "",
-        });
-        setSelectedValue("");
-        setTimeout(() => setMessage(""), 3000); // Clear message after 3 seconds
-      },
-      (error) => {
-        setMessage("Failed to send message. Please try again.");
-        console.error("EmailJS error:", error);
-        setTimeout(() => setMessage(""), 3000);
-      }
-    );
+    setMessage("Message sent successfully!");
+    setTimeout(() => setMessage(""), 3000); // Clear message after 3 seconds
+    // Form submission is handled by Formspree via the action attribute
   };
 
   return (
@@ -105,11 +56,14 @@ const Contact = () => {
         <div className="flex flex-col xl:flex-row gap-[30px]">
           <div className="xl:h-[54%] order-2 xl:order-none">
             <form
+              action="https://formspree.io/f/xnndrwlw"
+              method="POST"
               onSubmit={handleSubmit}
               className="flex flex-col bg-gradient-to-r from-pink-600 to-pink-800 rounded-xl shadow-2xl overflow-hidden p-10 space-y-6"
             >
               <h3 className="text-center text-4xl font-extrabold text-white">
                 Let's Work Together
+              </ “‘s Work Together
               </h3>
               <p className="text-center text-gray-200">
                 Fill out the form below to get in touch.
@@ -124,8 +78,7 @@ const Contact = () => {
                     type="text"
                     required
                     id="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
+                    name="firstName"
                   />
                   <label
                     className="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-purple-500 peer-focus:text-sm"
@@ -141,8 +94,7 @@ const Contact = () => {
                     type="text"
                     required
                     id="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
+                    name="lastName"
                   />
                   <label
                     className="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-purple-500 peer-focus:text-sm"
@@ -160,12 +112,11 @@ const Contact = () => {
                   type="email"
                   required
                   id="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
+                  name="email"
                 />
                 <label
                   className="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-purple-500 peer-focus:text-sm"
-                  htmlFor="email"
+                    htmlFor="email"
                 >
                   Email
                 </label>
@@ -178,20 +129,18 @@ const Contact = () => {
                   type="text"
                   required
                   id="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
+                  name="phone"
                 />
                 <label
                   className="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-purple-500 peer-focus:text-sm"
-                  htmlFor="phone"
+                    htmlFor="phone"
                 >
                   Phone
                 </label>
               </div>
-              <Select onValueChange={(value) => {
-                setSelectedValue(value);
-                setFormData((prev) => ({ ...prev, service: value }));
-              }}>
+              <Select
+                onValueChange={(value) => setSelectedValue(value)}
+              >
                 <SelectTrigger className="w-full">
                   <span className={`text-${selectedValue ? "black" : "gray-400"}`}>
                     {selectedValue || "Select a service"}
@@ -206,13 +155,17 @@ const Contact = () => {
                     <SelectItem value="seo-optimization">SEO Optimization</SelectItem>
                   </SelectGroup>
                 </SelectContent>
+                <input
+                  type="hidden"
+                  name="service"
+                  value={selectedValue}
+                />
               </Select>
               <Textarea
                 className="h-[200px]"
                 placeholder="Type your message here."
                 id="message"
-                value={formData.message}
-                onChange={handleInputChange}
+                name="message"
               />
               <Button size="md" className="max-w-40" type="submit">
                 Send Message
