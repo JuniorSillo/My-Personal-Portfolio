@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-primary bg-primary text-white leading-loose;
+    font-family: "JetBrains Mono", monospace;
+  }
+  .h1 {
+    @apply text-[28px] xl:text-[50px] leading-[1.1] font-semibold;
+  }
+
+  .h2 {
+    @apply text-[18px] xl:text-[25px] leading-[1.1] font-semibold;
+  }
+
+  .h3 {
+    @apply text-[10px] xl:text-[15px] leading-[1.1] font-semibold;
+  }
+}
